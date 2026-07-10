@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tribute — Prove your vibe-coded app can serve a customer</title>
+<meta name="description" content="Tribute is a customer-journey readiness review for vibe-coded apps. An agent walks your app like a first-time visitor and scores five stages — with a screenshot behind every claim. Pass, and you enter the register.">
+<link rel="canonical" href="https://goflypost.github.io/tribute/">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌿</text></svg>">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Tribute — Prove your vibe-coded app can serve a customer">
+<meta property="og:description" content="A customer-journey readiness review for vibe-coded apps. Five stages, evidence-cited scores, a public register. The web, without the untested apps.">
+<meta property="og:url" content="https://goflypost.github.io/tribute/">
+<meta name="twitter:card" content="summary">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Tribute",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "Web",
+  "description": "A customer-journey readiness review for vibe-coded apps. An agentic reviewer walks the full customer journey and scores five stages with evidence-cited findings.",
+  "url": "https://goflypost.github.io/tribute/",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "sameAs": ["https://github.com/goflypost/tribute"]
+}
+</script>
+
+<style>
+  :root {
+    --bg: #0e1210;
+    --panel: #151b17;
+    --line: #24302a;
+    --text: #d9e2dc;
+    --muted: #8fa098;
+    --laurel: #7fc98f;
+    --laurel-dim: #4a7a56;
+    --serif: Georgia, "Times New Roman", serif;
+    --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--laurel); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .wrap { max-width: 880px; margin: 0 auto; padding: 0 24px; }
+
+  header.hero { padding: 96px 0 72px; border-bottom: 1px solid var(--line); }
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 13px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--laurel);
+    margin-bottom: 28px;
+  }
+  h1 {
+    font-family: var(--serif);
+    font-size: clamp(34px, 5.5vw, 56px);
+    font-weight: 400;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    max-width: 18ch;
+  }
+  h1 em { font-style: italic; color: var(--laurel); }
+  .lede {
+    margin-top: 28px;
+    font-size: 18px;
+    color: var(--muted);
+    max-width: 62ch;
+  }
+  .lede strong { color: var(--text); font-weight: 600; }
+  .cta-row { margin-top: 40px; display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn {
+    display: inline-block;
+    padding: 12px 22px;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 600;
+    border: 1px solid var(--laurel-dim);
+  }
+  .btn.primary { background: var(--laurel); color: #0c130e; border-color: var(--laurel); }
+  .btn.primary:hover { background: #93d6a1; text-decoration: none; }
+  .btn.ghost { color: var(--text); }
+  .btn.ghost:hover { border-color: var(--laurel); text-decoration: none; }
+  .motto {
+    margin-top: 36px;
+    font-family: var(--serif);
+    font-style: italic;
+    color: var(--muted);
+    font-size: 15px;
+  }
+
+  section { padding: 64px 0; border-bottom: 1px solid var(--line); }
+  h2 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 28px;
+    margin-bottom: 8px;
+  }
+  .kicker {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--laurel-dim);
+    margin-bottom: 10px;
+  }
+  section > .wrap > p { color: var(--muted); max-width: 68ch; margin-top: 12px; }
+  section p strong { color: var(--text); }
+
+  table { width: 100%; border-collapse: collapse; margin-top: 28px; font-size: 15px; }
+  th, td { text-align: left; padding: 14px 16px 14px 0; vertical-align: top; }
+  thead th {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--laurel-dim);
+    border-bottom: 1px solid var(--line);
+    font-weight: 500;
+  }
+  tbody tr { border-bottom: 1px solid var(--line); }
+  tbody tr:last-child { border-bottom: none; }
+  td.stage { font-family: var(--serif); font-style: italic; font-size: 17px; white-space: nowrap; }
+  td.q { color: var(--muted); }
+
+  .evidence {
+    margin-top: 28px;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--laurel);
+    border-radius: 6px;
+    padding: 22px 26px;
+    font-size: 15px;
+  }
+  .evidence .score { font-family: var(--mono); color: var(--laurel); font-size: 14px; }
+  .evidence p { color: var(--text); margin-top: 10px; }
+  .evidence cite {
+    display: block;
+    margin-top: 14px;
+    font-style: normal;
+    font-family: var(--mono);
+    font-size: 12.5px;
+    color: var(--muted);
+  }
+  .caption { margin-top: 10px; font-size: 13px; color: var(--muted); }
+
+  .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 28px; }
+  @media (max-width: 640px) { .cols { grid-template-columns: 1fr; } }
+  .col h3 { font-size: 16px; font-weight: 600; margin-bottom: 10px; }
+  .col p, .col li { color: var(--muted); font-size: 15px; }
+  .col ul { list-style: none; margin-top: 8px; }
+  .col li { padding-left: 20px; position: relative; margin-bottom: 10px; }
+  .col li::before { content: "→"; position: absolute; left: 0; color: var(--laurel-dim); }
+
+  .principles { margin-top: 28px; display: grid; gap: 18px; }
+  .principle { display: flex; gap: 14px; align-items: baseline; }
+  .principle .mark { color: var(--laurel); font-family: var(--mono); }
+  .principle p { color: var(--muted); font-size: 15px; max-width: 66ch; }
+  .principle p strong { color: var(--text); }
+
+  footer { padding: 48px 0 72px; color: var(--muted); font-size: 14px; }
+  footer .wrap { display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Tribute · 🌿 · The web, without the untested apps</div>
+    <h1>Prove your vibe-coded app can <em>serve a customer</em>.</h1>
+    <p class="lede">
+      Thousands of apps ship every day that no human has ever used — not even
+      the person who prompted them into existence. Before you ask Hacker News,
+      Reddit, or Product Hunt for attention, <strong>Tribute checks whether a
+      stranger can become a customer</strong>: an agent walks your app's entire
+      first-time journey and scores what it finds, with a screenshot behind
+      every claim.
+    </p>
+    <div class="cta-row">
+      <a class="btn primary" href="https://github.com/goflypost/tribute/issues/new?template=tune-up-request.yml">Volunteer as tribute</a>
+      <a class="btn ghost" href="https://github.com/goflypost/tribute">Read the code on GitHub</a>
+    </div>
+    <p class="motto">"I volunteer as tribute."</p>
+  </div>
+</header>
+
+<section id="tune-up">
+  <div class="wrap">
+    <div class="kicker">The Tune Up</div>
+    <h2>Five stages, modeled on the Apple Steps of Service</h2>
+    <p>
+      A Tune Up is not generic QA and it is not a promise of distribution. It
+      is a <strong>customer-journey readiness review</strong>: a first-time
+      visitor with thirty seconds of patience per screen clicks through your
+      flows, submits your forms, typos, hits back mid-flow — and scores each
+      stage 1–5 against a public rubric.
+    </p>
+    <table>
+      <thead><tr><th>Stage</th><th>The question it answers</th></tr></thead>
+      <tbody>
+        <tr><td class="stage">Approach</td><td class="q">Do the first five seconds tell me what this is and why I'd care?</td></tr>
+        <tr><td class="stage">Probe</td><td class="q">Does onboarding learn what I need, or dump me somewhere empty?</td></tr>
+        <tr><td class="stage">Present</td><td class="q">Can I accomplish the core thing? How many steps, how many dead ends?</td></tr>
+        <tr><td class="stage">Listen</td><td class="q">What happens when I typo, submit blanks, or hit back mid-flow?</td></tr>
+        <tr><td class="stage">End</td><td class="q">Is there a confirmation, a farewell, a reason to return — or does the journey just stop?</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="report">
+  <div class="wrap">
+    <div class="kicker">The Report</div>
+    <h2>Every score cites a moment you can check</h2>
+    <p>
+      The output is a service report, not a takedown. Every score below 4
+      ships with a concrete observation the builder can fix, and every claim
+      cites a step number and a screenshot from the run.
+    </p>
+    <div class="evidence">
+      <span class="score">listen: 3/5</span>
+      <p>
+        Empty submission relies on the browser's native tooltip while invalid
+        credentials get a custom styled error — two inconsistent error surfaces.
+        Partial input is fully lost on back-navigation: returning to the form
+        yields empty fields, so the user retypes everything.
+      </p>
+      <cite>evidence: step 7, listen-step-07.png · step 8, listen-step-08.png</cite>
+    </div>
+    <p class="caption">Representative finding from an early Tune Up run.</p>
+  </div>
+</section>
+
+<section id="how">
+  <div class="wrap">
+    <div class="kicker">How it works</div>
+    <h2>A register, an extension, and a way in</h2>
+    <div class="cols">
+      <div class="col">
+        <h3>For people browsing</h3>
+        <ul>
+          <li>A browser extension appraises app listings in place, starting with Show HN.</li>
+          <li>Apps that passed a Tune Up wear a laurel. Unknowns get scored against cheap, open heuristics.</li>
+          <li>You set the strictness — hide, dim, or just label. Your personal trust list beats every other signal, always.</li>
+        </ul>
+      </div>
+      <div class="col">
+        <h3>For builders</h3>
+        <ul>
+          <li>Request a Tune Up: one form, your URL, and the core journey a first-time customer should complete.</li>
+          <li>Pass — no stage below 3, total ≥ 18/25 — and every Tribute install stops flagging you within a day.</li>
+          <li>Fail, and you get the exact journey breaks, cited. Fix them and resubmit; history stays visible.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="principles">
+  <div class="wrap">
+    <div class="kicker">Principles</div>
+    <h2>Verdicts can't be bought</h2>
+    <div class="principles">
+      <div class="principle"><span class="mark">01</span>
+        <p><strong>The rubric is open data.</strong> Scoring criteria live in versioned markdown; editing the rubric is a pull request, and every report is reproducible against the version that scored it.</p>
+      </div>
+      <div class="principle"><span class="mark">02</span>
+        <p><strong>Failed reports stay public.</strong> Resubmission is a repair path, not an eraser. Trust reflects the latest reviewed journey, with history kept visible.</p>
+      </div>
+      <div class="principle"><span class="mark">03</span>
+        <p><strong>The reviewer operates inside hard boundaries.</strong> No payments, no attacks, one test account at most, no mess left behind. The Tune Up is a service the builder wants.</p>
+      </div>
+      <div class="principle"><span class="mark">04</span>
+        <p><strong>The repo is the database.</strong> Every verdict has blame, history, and a review trail. Misclassified? File an issue — every fix ships to everyone.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="status">
+  <div class="wrap">
+    <div class="kicker">Status</div>
+    <h2>Pre-alpha: a walking skeleton</h2>
+    <p>
+      Everything is thin but connected end to end — rubric, register,
+      heuristics, Tune Up pipeline, extension. The inaugural cohort of five
+      apps is being drawn live from Show HN to stress-test the rubric across
+      very different journey shapes. Inspired by
+      <a href="https://knockoff.shopping">Knockoff</a>, which does this for
+      pseudo-brands on Amazon.
+    </p>
+    <div class="cta-row" style="margin-top:32px">
+      <a class="btn primary" href="https://github.com/goflypost/tribute/issues/new?template=tune-up-request.yml">Request a Tune Up</a>
+      <a class="btn ghost" href="https://github.com/goflypost/tribute#the-tune-up">Read the rubric</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>Tribute · <a href="https://github.com/goflypost/tribute/blob/main/LICENSE">FSL-1.1-MIT</a> — fair source, MIT in two years</span>
+    <span><a href="https://github.com/goflypost/tribute">github.com/goflypost/tribute</a></span>
+  </div>
+</footer>
+
+</body>
+</html>
