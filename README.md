@@ -98,7 +98,7 @@ the variance.
 
 ## Development
 
-One npm-workspaces monorepo. Node ≥ 20.
+One npm-workspaces monorepo. Node ≥ 22.
 
 ```sh
 npm install
