@@ -262,7 +262,6 @@ A screenshot of the current viewport is attached. Decide your single next action
       {
         model: MODEL,
         max_tokens: 16000,
-        thinking: { type: "enabled", budget_tokens: 2048 },
         system,
         messages: [
           {
@@ -341,7 +340,6 @@ ${formatLog(steps)}`;
     {
       model: MODEL,
       max_tokens: 16000,
-      thinking: { type: "enabled", budget_tokens: 2048 },
       messages: [{ role: "user", content: prompt }],
     },
     SCORE_TOOL,
