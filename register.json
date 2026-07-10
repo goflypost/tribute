@@ -1,0 +1,46 @@
+{
+  "version": 1,
+  "updatedAt": "2026-07-10",
+  "entries": [
+    {
+      "domain": "lastshelf.ai",
+      "name": "LastShelf",
+      "url": "https://lastshelf.ai",
+      "status": "pending",
+      "notes": "Inaugural cohort. Consumer, high-trust, journey-heavy (trial, onboarding, quiz). Domain confirmed against the Show HN post (lastshelf.ai, not .app).",
+      "addedAt": "2026-07-10"
+    },
+    {
+      "domain": "lucid.dev",
+      "name": "Lucid",
+      "url": "https://lucid.dev",
+      "status": "pending",
+      "notes": "Inaugural cohort. Novel-concept AI tool that lives or dies in the first 60 seconds. Domain unconfirmed — verify against the Show HN post before the first Tune Up.",
+      "addedAt": "2026-07-10"
+    },
+    {
+      "domain": "devthropology.com",
+      "name": "Devthropology",
+      "url": "https://devthropology.com",
+      "status": "pending",
+      "notes": "Inaugural cohort. SaaS demo-to-connect flow. Domain unconfirmed — verify against the Show HN post before the first Tune Up.",
+      "addedAt": "2026-07-10"
+    },
+    {
+      "domain": "arcaide.dev",
+      "name": "Arcaide",
+      "url": "https://arcaide.dev",
+      "status": "pending",
+      "notes": "Inaugural cohort. Dev tool with a classically abrupt journey. Domain unconfirmed — verify against the Show HN post before the first Tune Up.",
+      "addedAt": "2026-07-10"
+    },
+    {
+      "domain": "hnwork.app",
+      "name": "hnwork.app",
+      "url": "https://hnwork.app",
+      "status": "pending",
+      "notes": "Inaugural cohort. Micro-utility — proves the rubric scales down and doesn't punish simple apps for being simple.",
+      "addedAt": "2026-07-10"
+    }
+  ]
+}

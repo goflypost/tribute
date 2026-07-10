@@ -1,0 +1,66 @@
+{
+  "version": 1,
+  "updatedAt": "2026-07-10",
+  "thresholds": {
+    "flag": 0.45,
+    "caution": 0.25
+  },
+  "signals": [
+    {
+      "id": "default-platform-domain",
+      "description": "Hosted on a default platform subdomain (*.vercel.app, *.netlify.app, ...)",
+      "weight": 0.2,
+      "type": "url-pattern",
+      "pattern": "^https?://[^/]*\\.(vercel\\.app|netlify\\.app|pages\\.dev|web\\.app|firebaseapp\\.com|glitch\\.me|repl\\.co|replit\\.app|lovable\\.app|lovableproject\\.com|base44\\.app|bolt\\.host)(/|$)"
+    },
+    {
+      "id": "made-with-badge",
+      "description": "Carries a \"made with\" builder badge (Lovable, Bolt, v0, ...)",
+      "weight": 0.15,
+      "type": "html-pattern",
+      "pattern": "(made with|built with)\\s*(<[^>]+>\\s*)*(lovable|bolt|v0|base44|replit)"
+    },
+    {
+      "id": "lorem-ipsum",
+      "description": "Placeholder copy (lorem ipsum) still on the page",
+      "weight": 0.15,
+      "type": "html-pattern",
+      "pattern": "lorem ipsum"
+    },
+    {
+      "id": "default-framework-title",
+      "description": "Default framework page title (Vite + React, Create Next App, ...)",
+      "weight": 0.15,
+      "type": "html-pattern",
+      "pattern": "<title>\\s*(vite \\+ react|create next app|react app|welcome to next\\.js|vue app|svelte app)\\s*</title>"
+    },
+    {
+      "id": "placeholder-links",
+      "description": "Footer/nav links (About, Pricing, Privacy...) that go nowhere (href=\"#\")",
+      "weight": 0.1,
+      "type": "html-pattern",
+      "pattern": "href=[\"']#[\"'][^>]*>\\s*(about|pricing|contact|privacy|terms|blog|docs)"
+    },
+    {
+      "id": "no-favicon",
+      "description": "No favicon declared",
+      "weight": 0.05,
+      "type": "check",
+      "check": "no-favicon"
+    },
+    {
+      "id": "missing-og",
+      "description": "No Open Graph tags",
+      "weight": 0.08,
+      "type": "check",
+      "check": "missing-og"
+    },
+    {
+      "id": "blank-without-js",
+      "description": "Page renders essentially blank without JavaScript",
+      "weight": 0.12,
+      "type": "check",
+      "check": "empty-body"
+    }
+  ]
+}
