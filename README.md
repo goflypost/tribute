@@ -13,6 +13,11 @@ Inspired by [Knockoff](https://knockoff.shopping), which does this for
 pseudo-brands on Amazon. Tribute does it for vibe-coded software everywhere
 apps get launched.
 
+The guidepost: before builders ask the internet for users, prove the app can
+serve one. A Tune Up is not generic QA and it is not a promise of distribution;
+it is a customer-journey readiness review modeled on the Apple Steps of
+Service.
+
 ## How it works
 
 Tribute is a browser extension plus an appraisal pipeline. Every app listing
@@ -38,6 +43,12 @@ The way onto the register is the Tune Up: an agentic reviewer walks your app's
 entire customer journey and scores it. Pass, and every Tribute install stops
 flagging you within a day.
 
+**5. Builders can earn their way back.**
+Failing a Tune Up is not a life sentence. A builder can fix the cited journey
+breaks, resubmit, and enter a re-Tune Up queue without erasing the original
+report. Trust is earned by the latest reviewed customer journey, with history
+kept visible.
+
 ## The Tune Up
 
 The Tune Up is a customer-journey review modeled on the Apple Steps of
@@ -59,14 +70,44 @@ that proves it.
 
 ## Status
 
-Pre-alpha. Nothing works yet. The build order:
+Pre-alpha: a walking skeleton. Everything is thin but connected, end to end:
 
-1. **The rubric** — scoring criteria for the five stages (`rubric/`)
-2. **The register** — schema and seed data (`register/`)
-3. **Heuristics** — cheap static signals for unknown apps (`heuristics/`)
-4. **The Tune Up pipeline** — agentic journey testing (`tuneup/`)
-5. **The extension** — Show HN content script first, then Product Hunt and
-   beyond (`extension/`)
+1. **The rubric** — scoring criteria for the five stages (`rubric/`) ✓
+2. **The register** — Zod schema and seed data (`packages/register/`) ✓
+3. **Heuristics** — cheap static signals for unknown apps (`packages/heuristics/`) ✓
+4. **The Tune Up pipeline** — agentic journey testing (`packages/tuneup/`) ✓
+5. **The extension** — Show HN content script (`extension/`) ✓ — Product Hunt
+   and beyond later
+
+Next: run the inaugural cohort through the Tune Up and tighten the rubric on
+the variance.
+
+## Development
+
+One npm-workspaces monorepo. Node ≥ 20.
+
+```sh
+npm install
+npm run build      # heuristics → register → tuneup → extension
+npm test           # heuristics engine tests + extension typecheck
+npm run validate   # Zod-validates register.json and signals.json
+
+# Run a Tune Up (needs ANTHROPIC_API_KEY and Chrome installed)
+npm run tuneup -- https://example.app --name Example
+
+# Load the extension: chrome://extensions → Load unpacked → extension/dist
+```
+
+How updates ship: PR merges → CI validates against the Zod schemas → promotes
+`register.json` + `signals.json` to the `dist` branch → jsDelivr serves them →
+every install picks them up within 24 hours. The scoring *engine* is bundled
+code (Manifest V3 forbids remote code); everything meant to change daily is
+declarative data. The repo is the database: every verdict has blame, history,
+and a review trail.
+
+*Known gap (by design, for now):* the register payload is protected by HTTPS
+and GitHub auth only. Post-alpha, the payload will be signed and installs will
+verify the signature before applying updates.
 
 ### Inaugural cohort
 

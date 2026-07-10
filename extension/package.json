@@ -1,0 +1,19 @@
+{
+  "name": "tribute-extension",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.json && node build.mjs",
+    "test": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "@tribute/heuristics": "*",
+    "@tribute/register": "*"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.0.280",
+    "esbuild": "^0.28.1",
+    "typescript": "^5.6.0"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "Tribute",
+  "version": "0.0.1",
+  "description": "The web, without the untested apps. Appraises Show HN listings in place; verified apps wear a laurel.",
+  "permissions": ["storage", "alarms"],
+  "host_permissions": [
+    "https://news.ycombinator.com/*",
+    "https://cdn.jsdelivr.net/*"
+  ],
+  "optional_host_permissions": [
+    "http://*/*",
+    "https://*/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://news.ycombinator.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Tribute"
+  }
+}

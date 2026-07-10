@@ -1,0 +1,23 @@
+{
+  "name": "@tribute/tuneup",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "bin": {
+    "tribute-tuneup": "dist/cli.js"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "npm run build -w @tribute/register && npm run build && node --test \"test/**/*.mjs\""
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.60.0",
+    "@tribute/register": "*",
+    "playwright-core": "^1.50.0",
+    "zod": "^3.25.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.6.0"
+  }
+}

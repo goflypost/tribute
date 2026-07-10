@@ -1,0 +1,22 @@
+{
+  "name": "tribute",
+  "version": "0.0.1",
+  "private": true,
+  "description": "The web, without the untested apps.",
+  "license": "FSL-1.1-MIT",
+  "engines": {
+    "node": ">=20"
+  },
+  "workspaces": [
+    "packages/heuristics",
+    "packages/register",
+    "packages/tuneup",
+    "extension"
+  ],
+  "scripts": {
+    "build": "npm run build -w @tribute/heuristics && npm run build -w @tribute/register && npm run build -w @tribute/tuneup && npm run build -w tribute-extension",
+    "test": "npm run test --workspaces --if-present",
+    "validate": "npm run validate -w @tribute/register",
+    "tuneup": "npm run build -w @tribute/heuristics && npm run build -w @tribute/register && npm run build -w @tribute/tuneup && node packages/tuneup/dist/cli.js"
+  }
+}
