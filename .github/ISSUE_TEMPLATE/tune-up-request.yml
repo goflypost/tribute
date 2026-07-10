@@ -1,0 +1,80 @@
+name: Request a Tune Up
+description: Volunteer your app as tribute — a customer-journey readiness review. Pass, and every Tribute install stops flagging you within a day.
+title: "Tune Up: <app name>"
+labels: ["tune-up-request"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **What you're signing up for.** An agentic reviewer walks your app's
+        customer journey — first visit, onboarding, the core task, error
+        handling, and the ending — and drafts a scored service report. A human
+        reads, corrects, and signs every report before it touches the
+        register. The report is public, and it is a service report, not a
+        takedown: every score ships with explainable reasoning.
+
+        Requests are worked in queue order. Failing is not a life sentence —
+        fix the cited journey breaks and request a re-Tune Up below.
+
+        The reviewer follows strict boundaries ([ETHICS.md](https://github.com/goflypost/tribute/blob/main/packages/tuneup/ETHICS.md)):
+        it stops at paywalls and payment forms, uses an obviously-fake test
+        identity, creates at most one account, and never attacks your app.
+  - type: input
+    id: app-name
+    attributes:
+      label: App name
+    validations:
+      required: true
+  - type: input
+    id: app-url
+    attributes:
+      label: App URL
+      description: The live URL a first-time customer would land on.
+      placeholder: https://example.app
+    validations:
+      required: true
+  - type: input
+    id: core-journey
+    attributes:
+      label: Core journey
+      description: In one line — what should a first-time visitor be able to accomplish?
+      placeholder: Sign up and create a first invoice in under two minutes.
+    validations:
+      required: true
+  - type: dropdown
+    id: request-type
+    attributes:
+      label: Request type
+      options:
+        - First Tune Up
+        - Re-Tune Up (I fixed the cited journey breaks)
+    validations:
+      required: true
+  - type: textarea
+    id: resubmission
+    attributes:
+      label: If this is a re-Tune Up
+      description: Link the previous report and say what you fixed. Leave blank for a first Tune Up.
+      placeholder: |
+        Previous report: <link>
+        Fixed: onboarding no longer dumps new users on the settings page; ...
+  - type: textarea
+    id: journey-notes
+    attributes:
+      label: Anything the reviewer should know
+      description: >-
+        Optional. Signup requirements, regions, known rough edges. Do NOT post
+        credentials or secrets here — this issue is public. If the journey
+        can't be walked without a demo account, say so and we'll arrange it
+        privately.
+  - type: checkboxes
+    id: consent
+    attributes:
+      label: Consent
+      options:
+        - label: I built this app or am authorized to volunteer it for review.
+          required: true
+        - label: The app is live at the URL above and will stay up while the review runs. The reviewer may create one test account with its test identity.
+          required: true
+        - label: I understand the report is public and stays visible — a re-Tune Up adds to the history, it doesn't erase it.
+          required: true

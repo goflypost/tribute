@@ -1,0 +1,46 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - run: npm test
+      - run: npm run validate
+
+  # Publish is a deliberate promotion, not every commit: only validated data
+  # from main lands on the dist branch, which jsDelivr serves to every
+  # install. A bad merge can't brick installs — it fails validation first.
+  promote:
+    needs: validate
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Assemble dist payload
+        run: |
+          mkdir -p publish
+          cp packages/register/data/register.json publish/
+          cp packages/heuristics/data/signals.json publish/
+          echo "{\"promotedAt\":\"$(date -u +%FT%TZ)\",\"commit\":\"$GITHUB_SHA\"}" > publish/meta.json
+      - name: Promote to dist branch
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./publish
+          publish_branch: dist
+          force_orphan: true
+          commit_message: "promote ${{ github.sha }}"

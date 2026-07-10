@@ -68,6 +68,20 @@ first screen is a settings page"). The output is a service report, not a
 takedown. The goal is software that treats its users well — and a register
 that proves it.
 
+## For builders
+
+Ready to volunteer? [Request a Tune Up](https://github.com/goflypost/tribute/issues/new?template=tune-up-request.yml)
+— one form: your app's URL and the core journey a first-time customer should
+be able to complete. Requests are worked in queue order, every report is
+human-signed before it ships, and the reviewer operates inside strict
+[boundaries](packages/tuneup/ETHICS.md): no payments, no attacks, one test
+account at most.
+
+Pass, and your app enters the register — within a day, every Tribute install
+shows it wearing a laurel instead of a score. Fail, and you get a service
+report citing exactly where the journey breaks; fix it and request a
+re-Tune Up from the same form.
+
 ## Status
 
 Pre-alpha: a walking skeleton. Everything is thin but connected, end to end:
@@ -124,8 +138,8 @@ rubric across very different journey shapes:
 ## Contributing
 
 The untested-app arms race is only winnable together. Add heuristics, tune the
-rubric, report misclassifications, or volunteer your own app as tribute. Every
-fix ships to everyone.
+rubric, report misclassifications, or [volunteer your own app as tribute](https://github.com/goflypost/tribute/issues/new?template=tune-up-request.yml).
+Every fix ships to everyone.
 
 ## License
 
